@@ -1,0 +1,16 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 1</title>
+</head>
+<body>
+    <h1>Similar Employees</h1>
+    <ul>
+        {% for employee_id, similarity in similar_employees %}
+            <li>Employee ID: {{ employee_id }} - Similarity: {{ similarity }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

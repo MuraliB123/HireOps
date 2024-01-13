@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: justify;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      color: #333;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #jsonDisplay {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+  <title>Fryde AI</title>
+</head>
+<body>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <h1>Fryde AI</h1>
+
+  <form id="inputForm" method="POST" enctype="multipart/form-data" action="http://127.0.0.1:5000/fryde">
+    <label for="projectName">Enter Project Name:</label>
+    <input type="text" id="projectName" name="projectName" required>
+
+    <label for="projectID">Enter Project ID:</label>
+    <input type="text" id="projectID" name="projectID" required>
+
+    <label for="requirements">Enter Requirements:</label>
+    <textarea id="requirements" name="requirements" rows="4" required></textarea>
+    <input type="submit" value='submit' >
+  </form>
+  <center><span>OR</span></center>
+  <form id="inputForm1" method="POST" enctype="multipart/form-data" action="http://127.0.0.1:5000/json">
+    <input type="file" name="jsonFile" accept=".json">
+    <input type="submit" value="Upload JSON">
+</form>
+
+
+</body>
+</html>

@@ -46,9 +46,8 @@ def calculate_credit_score(tasks):
     return overall_credit_score
 
 tasks = [
-    TaskData("Task1",9,9,3,8),
-    TaskData("Task2",9,9,2,5),
-    TaskData("Task3",9,9,2,5)
+    TaskData("Task1",5,5,5,9),
+    TaskData("Task2",9,9,3,8) 
 ]
 
 
