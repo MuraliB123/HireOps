@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +6,15 @@
 <body>
     <h1>Similar Employees</h1>
     <ul>
-        {% for employee_id, similarity in similar_employees %}
-            <li>Employee ID: {{ employee_id }} - Similarity: {{ similarity }}</li>
+        {% for employee_details in similar_employee_details %}
+            <li>
+                <strong>Employee ID:</strong> {{ employee_details.EMPLOYEE_ID }}<br>
+                <strong>Name:</strong> {{ employee_details.EMPLOYEE_NAME }}<br>
+                <strong>Email:</strong> {{ employee_details.MAIL }}<br>
+                <strong>Credit Score:</strong> {{ employee_details.CREDIT_SCORE }}<br>
+                <strong>Profile:</strong> <a href="#">{{ employee_details.PROFILE }}</a><br>
+            </li>
+            <br>
         {% endfor %}
     </ul>
 </body>

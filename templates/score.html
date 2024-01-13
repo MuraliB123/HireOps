@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result page</title>
+    <link rel="stylesheet" href="static/style_score.css">
+   
+</head>
+<body>
+
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Workflow Analysis</a>
+        <a href="#">Forecast Hiring</a>
+  
+    </nav>
+
+    <div class="list">
+        <h2>Fryde Suggests !</h2> <button >Apply Filter</button>
+        <table>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Credit Score</th>
+                <th>Profile</th>
+            </tr>
+            {% for employee_details in similar_employee_details %}
+                <tr>
+                    <td>{{ employee_details.EMPLOYEE_ID }}</td>
+                    <td>{{ employee_details.EMPLOYEE_NAME }}</td>
+                    <td>{{ employee_details.MAIL }}</td>
+                    <td>{{ employee_details.CREDIT_SCORE }}</td>
+                    <td><a href="#">{{ employee_details.PROFILE }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+      <div class="content">
+        <div class="section">
+            <img src="{{ url_for('static', filename='ponder.jpeg') }}" alt="Ponder Image" height="200px">
+            <div>
+                <h2>Why Credit Score !</h2>
+                <p>We identified key parameters such as 
+                    <ul>
+                        <li>Employee's expertise</li>
+                        <li>Hours spent on task</li>
+                        <li>Critical need at the moment </li>
+                        <li> Manager's performance index</li>
+                    </ul>
+                  <span>  To determine the availability of employees on taking up newer tasks. Our suggestion helps to reduce over-workload as well as under-workload thereby yielding better retention and growth.</span>
+                </p>
+            </div>
+        </div>
+        <div class="section">
+            <div >
+                <h2>Credit Score Interpretation</h2>
+                 <ul>
+                    <li>Score >= 10 </li><span>Employee is readily available for newer tasks</span>
+                    <li>Score 7-9 </li><span>Employee can be considered for newer tasks</span>
+                    <li>Score <= 6</li><span>Employee is not available for newer tasks</span>
+                </ul>              
+            </div>
+            <img src="{{ url_for('static', filename='image2.jpg') }}" alt="Ponder Image" height="300px" id="img2">
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer__addr">
+          <h1 class="footer__logo">HireOps</h1>     
+          <h2>Contact</h2> 
+          <address>
+            21 - Anna University, Chennai<br>
+            Phone no - 044 239013<br>
+            Mail us - info@hireops.com
+          </address>
+        </div>       
+        <ul class="footer__nav">
+          <li class="nav__item">
+            <h2 class="nav__title">Media</h2>
+            <ul class="nav__ul">
+              <li>
+                <a href="#">LinkedIn</a>
+              </li>
+      
+              <li>
+                <a href="#">Instagram</a>
+              </li>
+                  
+              <li>
+                <a href="#">X</a>
+              </li>
+            </ul>
+          </li>
+          
+          <li class="nav__item nav__item--extra">
+            <h2 class="nav__title">Services</h2>
+            
+            <ul class="nav__ul ">
+              <li>
+                <a href="#">Skill Matching Engine</a>
+              </li>
+              
+              <li>
+                <a href="#">Workflow Analysis</a>
+              </li>
+              
+              <li>
+                <a href="#">Forecast Hiring</a>
+              </li>
+              
+            </ul>
+          </li>  
+          <li class="nav__item nav__item--extra">
+            <h2 class="nav__title">Links</h2>
+            
+            <ul class="nav__ul ">
+              <li>
+                <a href="#">Home</a>
+              </li>
+              
+              <li>
+                <a href="#">Blogs</a>
+              </li>
+              
+              <li>
+                <a href="#">Our Team</a>
+              </li>
+              
+            </ul>
+          </li>  
+        </ul>
+        
+        <div class="legal">
+          <p>&copy; HireOps. All rights reserved.</p>  
+        </div>
+      </footer>
+      
+
+
+</body>
+</html>
