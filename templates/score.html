@@ -33,7 +33,7 @@
                     <td>{{ employee_details.EMPLOYEE_NAME }}</td>
                     <td>{{ employee_details.MAIL }}</td>
                     <td>{{ employee_details.CREDIT_SCORE }}</td>
-                    <td><a href="#">{{ employee_details.PROFILE }}</a></td>
+                    <td><a href="{{ url_for('profile', employee_id=employee_details.EMPLOYEE_ID) }}">{{ employee_details.PROFILE }}</a></td>
                 </tr>
             {% endfor %}
         </table>

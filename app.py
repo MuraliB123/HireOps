@@ -13,7 +13,7 @@ Session = sessionmaker(bind=engine)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:new_password@localhost/HIREOPS'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-from models import Employees,db,skills,EmployeeDetails
+from models import Employees,db,skills,EmployeeDetails,Task
 db.init_app(app)
 
 def fetch_employee_details(employee_ids):
@@ -22,8 +22,20 @@ def fetch_employee_details(employee_ids):
 
 @app.route('/')
 def  index():
-    return render_template('profile.html')
+    return render_template('index.html')
 
+@app.template_filter('custom_title')
+def custom_title(value):
+    return ', '.join(word.strip().capitalize() for word in value.split(','))
+
+@app.route('/profile/<int:employee_id>')
+def profile(employee_id):
+    employee_details = EmployeeDetails.query.filter_by(EMPLOYEE_ID=employee_id).first() 
+    Skills = skills.query.filter_by(employee_id=employee_id).first()
+    tasks = Task.query.filter_by(EMPLOYEE_ID=employee_id).all()
+    return render_template('profile.html', employee_details=employee_details, skills=Skills,tasks=tasks)
+  
+   
 @app.route('/fryde', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
@@ -63,7 +75,9 @@ def file_json():
             cosine_similarities = linear_kernel(input_vector, tfidf_matrix).flatten()
             similar_employees = [(df['employee_id'][i], similarity) for i, similarity in enumerate(cosine_similarities) if similarity > 0.35]
             similar_employees = sorted(similar_employees, key=lambda x: x[1], reverse=True)
-            return render_template("module1.html", similar_employees=similar_employees)
+            similar_employee_ids = [emp_id for emp_id, _ in similar_employees]
+            similar_employee_details = fetch_employee_details(similar_employee_ids)
+        return render_template("score.html", similar_employee_details=similar_employee_details)
     else:
         return render_template("index.html")
 
