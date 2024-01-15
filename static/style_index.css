@@ -1,108 +1,88 @@
-h2, button {
-    display: inline-block;
-    vertical-align: middle;
-}
-    body {
-        
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-    }
-    nav {
-        background-color: none;
-        overflow: hidden;
-    }
-   nav a {
-        float: left;
-        display: block;
-        color: black;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
-  nav a:hover {
-        background-color: #ddd;
-        color: black;
-        font-size: larger;
-        transition: 0.6s;
-    }
-    .content {
-        padding:30px ;
-    }
-    .section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-   .section img {
-        width: 300px;
-        border-radius: 5px;
-        margin-right: 20px;
-    }
-    .section h2 {
-        margin-top: 0px;
-        color: #333;
-        font-size: 30px;
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-     #img2{
-        margin-right: 100px;
-     }
-    .section p , ul,span{
-        color: black;
-        font-size: 18px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        line-height: 1.5;
-    }
-    .list {
-    margin: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-th {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f2f2f2;
-}
-
-a {
-    color: #007BFF;
-    text-decoration: none;
-}
-.list h2{
-    font-family:Verdana, Geneva, Tahoma, sans-serif ;
-    
-
-}
-button {
-    padding: 15px;
-    background-color: #007BFF;
-    color: #fff;
+  }
+  input[type="submit"] {
+    background-color: #3498db; 
+    color: #fff; 
+    padding: 10px 20px; 
+    font-size: 16px; 
     border: none;
     border-radius: 5px;
-    margin-top: 10px;
     cursor: pointer;
-    float: right; 
-    font-size: 16px;
-}
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: background-color 0.3s ease; 
+  }
 
+  input[type="submit"]:hover {
+    background-color: #2980b9; 
+  }
+  nav {  
+    padding: 10px 0;
+    text-align: justify;
+  }
 
-.footer {
+  nav a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 50px;
+    color: #333;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #jsonDisplay {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .footer {
     display: flex;
     flex-flow: row wrap;
     padding: 30px 30px 20px 30px;
@@ -186,6 +166,7 @@ button {
   
   .nav__ul a {
     color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   
   .nav__ul--extra {

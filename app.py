@@ -22,7 +22,7 @@ def fetch_employee_details(employee_ids):
 
 @app.route('/')
 def  index():
-    return render_template('score.html')
+    return render_template('profile.html')
 
 @app.route('/fryde', methods=['GET', 'POST'])
 def home():
