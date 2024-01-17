@@ -22,7 +22,7 @@ def fetch_employee_details(employee_ids):
 
 @app.route('/')
 def  index():
-    return render_template('index.html')
+    return render_template('hiring_input.html')
 
 @app.template_filter('custom_title')
 def custom_title(value):

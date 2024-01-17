@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forecasting</title>
+  <link rel="stylesheet" href="static/style_hiring_input.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Fryde AI</a>
+        <a href="#">Workflow Analysis </a>
+        <a href="#">Forecast Hiring</a>
+    </nav>
+
+ 
+      <div class="content">
+        <div class="section">
+            <img src="{{ url_for('static', filename='image3.jpeg') }}" alt="Ponder Image" height="200px">
+            <div>
+                <h2>Make Data Driven Hiring Decisions</h2>
+                <p>Guided by a data-centric philosophy, we thoroughly assess
+                    <ul>
+                        <li>Company's Instrinsic Factors</li>
+                        <li>Economic Indicators</li>
+                        <li>Financial's Metrics </li>
+                        
+                    </ul>
+                  <span> Powered by Robust Machine learning engine, Our forecasting accurately predicts Hiring counts for Each Quarter, resulting in enhanced employee retention and optimized resource utilization.</span>
+                </p>
+            </div>
+        </div>
+
+      <div class="section">
+          <div class="content2">
+              <center> <h2>
+              <span>
+                Upload The Data In JSON Format 
+              </span></h2>
+              </center> 
+           
+           <form id="inputForm2" method="POST" enctype="multipart/form-data" action="http://127.0.0.1:5000/hiring">
+              <center> <input type="file" name="jsonFile" id="jsonFile" accept=".json"></center>
+               <br>
+               <center>
+               <input type="submit" value="Submit">
+              </center>
+           </form>
+           <center> <p class="ref">(For Reference click here)</p></center>
+        </div>
+          <img src="{{ url_for('static', filename='image2.jpg') }}" alt="Ponder Image" height="200px">
+      </div>
+       
+<br>
+<footer class="footer">
+  <div class="footer__addr"> 
+    <h2>Contact</h2> 
+    <address>
+      21 - Anna University, Chennai<br>
+      Phone no - 044 239013<br>
+      Mail us - info@hireops.com
+    </address>
+  </div>       
+  <ul class="footer__nav">
+    <li class="nav__item">
+      <h2 class="nav__title">Media</h2>
+      <ul class="nav__ul">
+        <li>
+          <a href="#">LinkedIn</a>
+        </li>
+
+        <li>
+          <a href="#">Instagram</a>
+        </li>     
+        <li>
+          <a href="#">X</a>
+        </li>
+      </ul>
+    </li> 
+    <li class="nav__item nav__item--extra">
+      <h2 class="nav__title">Services</h2> 
+      <ul class="nav__ul ">
+        <li>
+          <a href="#">Skill Matching Engine</a>
+        </li>  
+        <li>
+          <a href="#">Workflow Analysis</a>
+        </li>   
+        <li>
+          <a href="#">Forecast Hiring</a>
+        </li>  
+      </ul>
+    </li>  
+    <li class="nav__item nav__item--extra">
+      <h2 class="nav__title">Links</h2> 
+      <ul class="nav__ul ">
+        <li>
+          <a href="#">Home</a>
+        </li> 
+        <li>
+          <a href="#">Blogs</a>
+        </li>
+        <li>
+          <a href="#">Our Team</a>
+        </li>
+      </ul>
+    </li>  
+  </ul>
+  <div class="legal">
+    <p>&copy; HireOps. All rights reserved.</p>  
+  </div>
+</footer>
+
+</body>
+</html>
