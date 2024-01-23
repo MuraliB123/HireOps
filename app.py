@@ -4,9 +4,11 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.engine import URL, create_engine
 from sqlalchemy import text as sql_text
 import pandas as pd
+from flask_cors import CORS
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 app = Flask(__name__, static_folder='static')
+CORS(app)
 app.secret_key = 'mykey'
 engine = create_engine('mysql+pymysql://root:new_password@localhost/HIREOPS',execution_options={"isolation_level": "AUTOCOMMIT"})
 Session = sessionmaker(bind=engine)
@@ -36,14 +38,19 @@ def profile(employee_id):
     return render_template('profile.html', employee_details=employee_details, skills=Skills,tasks=tasks)
   
    
-@app.route('/fryde', methods=['GET', 'POST'])
-def home():
+@app.route('/fryde', methods=['POST'])
+def fryde_route():
     if request.method == 'POST':
-        project_name = request.form.get('projectName')
-        project_id = request.form.get('projectID')
-        requirements = request.form.get('requirements')
+        data = request.json  # Assuming the data is sent as JSON from React
+        
+        # Extract data from JSON
+        project_name = data.get('projectName')
+        project_id = data.get('projectID')
+        requirements = data.get('requirements')
+
+        # The rest of your code remains unchanged
         query = "SELECT * FROM skills"
-        df = pd.read_sql_query(con=engine.connect(),sql=sql_text(query))
+        df = pd.read_sql_query(con=engine.connect(), sql=sql_text(query))
         df['SKILLS'] = df['SKILLS'].apply(lambda x: ' '.join(str(x).split(',')))
         tfidf_vectorizer = TfidfVectorizer(stop_words='english')
         tfidf_matrix = tfidf_vectorizer.fit_transform(df['SKILLS'])
@@ -51,12 +58,14 @@ def home():
         cosine_similarities = linear_kernel(input_vector, tfidf_matrix).flatten()
         similar_employees = [(df['employee_id'][i], similarity) for i, similarity in enumerate(cosine_similarities) if similarity > 0.35]
         similar_employees = sorted(similar_employees, key=lambda x: x[1], reverse=True)
-     
+
         similar_employee_ids = [emp_id for emp_id, _ in similar_employees]
         similar_employee_details = fetch_employee_details(similar_employee_ids)
-        return render_template("score.html", similar_employee_details=similar_employee_details)
+
+        # Return JSON response to React
+        return render_template("score.html",similar_employee_details=similar_employee_details)
     else:
-        return render_template("index.html")
+        return render_template("score.html")
 
 @app.route('/json', methods=['GET', 'POST'])
 def file_json():
@@ -84,4 +93,4 @@ def file_json():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='192.168.137.56', port=5000, debug=True)
