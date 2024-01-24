@@ -55,9 +55,9 @@
                 <h2>Make Data Driven Hiring Decisions</h2>
                 <p>Guided by a data-centric philosophy, we thoroughly assess
                     <ul>
-                        <li>Company's Instrinsic Factors</li>
-                        <li>Economic Indicators</li>
-                        <li>Financial's Metrics </li>
+                        <li>1.Company's Instrinsic Factors</li>
+                        <li>2.Economic Indicators</li>
+                        <li>3.Financial's Metrics </li>
                         
                     </ul>
                   <span> Powered by Robust Machine learning engine, Our forecasting accurately predicts Hiring counts for Each Quarter, resulting in enhanced employee retention and optimized resource utilization.</span>
@@ -69,12 +69,12 @@
           <div class="content2">
               <center> <h2>
               <span>
-                Upload The Data In JSON Format 
+                 Upload your data 
               </span></h2>
               </center> 
            
-           <form id="inputForm2" method="POST" enctype="multipart/form-data" action="http://127.0.0.1:5000/hiring">
-              <center> <input type="file" name="jsonFile" id="jsonFile" accept=".json"></center>
+           <form id="inputForm2" method="POST" enctype="multipart/form-data" action="/forecast">
+              <center> <input type="file" name="jsonfile" id="jsonFile" accept=".json"></center>
                <br>
                <center>
                <input type="submit" value="Submit">
