@@ -28,7 +28,7 @@ def fetch_employee_details(employee_ids):
 
 @app.route('/')
 def  index():
-    return render_template('hiring_input.html')
+    return render_template('index.html')
 
 @app.template_filter('custom_title')
 def custom_title(value):
@@ -138,8 +138,10 @@ def get_input():
             plt.legend()
             plt.savefig('static/forecast_plot.png')  
             plt.close()
-            return render_template("final_result.html",prediction=(predicted_candidates_hired_1+predicted_candidates_hired_2)/2)
+            return render_template("final_result.html",prediction=int((predicted_candidates_hired_1+predicted_candidates_hired_2)/2))
+    else:
+        return render_template("hiring_input.html")
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.0', port=5000, debug=True)
+    app.run(host='192.168.137.56', port=5000, debug=True)

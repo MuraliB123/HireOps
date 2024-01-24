@@ -2,7 +2,9 @@ nav {
     padding: 10px 0;
     text-align: justify;
   }
-
+.content2{
+  margin-left: 50px;
+}
   nav a {
     color: black;
     text-decoration: none;
@@ -185,12 +187,12 @@ nav {
 
 input[type="file"]
 {
-  color:cadetblue;
+  color:rgb(50, 63, 134);
   font-size: larger;
 }
 
 input[type="submit"] {
-  background-color: rgb(131, 159, 226);
+  background-color: rgb(60, 86, 146);
   color: #fff;
   padding: 12px 20px; 
   border: none;
@@ -204,3 +206,7 @@ input[type="submit"] {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.ref a{
+  text-decoration: none;
+  color: blue;
+}

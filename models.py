@@ -16,7 +16,7 @@ class EmployeeDetails(db.Model):
     MAIL = db.Column(db.String(17), nullable=True)
     CREDIT_SCORE = db.Column(db.DECIMAL(4, 2), nullable=True)
     PROFILE = db.Column(db.String(9), nullable=True)
-
+    PHONENO = db.Column(db.String(15),nullable=True)
 class Task(db.Model):
     __tablename__ = 'tasks'
     EMPLOYEE_ID = db.Column(db.Integer, nullable=True)
